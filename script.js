@@ -11,39 +11,48 @@ function writePassword() {
   var numeric = '1234567890'
   var specialChars = '!@#$%^&*()?<>'
   
+// function that puts confirms on the page to have the user select what character types they want   
   function chooseCharacters() {
-    var chars = '';
-    if (confirm("Would you like your password to contain lowercase letters?")) {
-      chars = chars + lowercase
-    }
-    else {
-      chars
-    }
-    if (confirm("Would you like your password to contain uppercase letters?")) {
-      chars = chars + uppercase
-    }
-    else {
-      chars
-    }
-    if (confirm("Would you like your password to contain numbers?")) {
-      chars = chars + numeric
-    }
-    else {
-      chars
-    }
-    if (confirm("Would you like your password to contain special characters?")) {
-      chars = chars + specialChars
-    }
-    else {
-      chars
-    }
+      var chars = '';
+
+      if (confirm("Would you like your password to contain lowercase letters?")) {
+        chars = chars + lowercase
+      }
+      else {
+        chars
+      }
+      if (confirm("Would you like your password to contain uppercase letters?")) {
+        chars = chars + uppercase
+      }
+      else {
+        chars
+      }
+      if (confirm("Would you like your password to contain numbers?")) {
+        chars = chars + numeric
+      }
+      else {
+        chars
+      }
+      if (confirm("Would you like your password to contain special characters?")) {
+        chars = chars + specialChars
+      }
+      else {
+        chars
+      } 
+      // if user hasn't selected any type of character, it sends them back through the confirms until they select at least one type
+      if (chars == '') {
+        alert('NOTE: User must select AT LEAST 1 character type.')
+        chooseCharacters()
+      }
+      console.log(chars)
+      
   }
 
   function generatePassword() {
-    
+    chooseCharacters()
   }
 
-  chooseCharacters()
+
   
   passwordText.value = password;
 }
@@ -59,32 +68,42 @@ writePassword();
 // var numeric = '1234567890'
 // var specialChars = '!@#$%^&*()?<>'
 
+
 // function chooseCharacters() {
 //   var chars = '';
+
 //   if (confirm("Would you like your password to contain lowercase letters?")) {
-//     console.log(chars = chars + lowercase)
+//     chars = chars + lowercase
 //   }
 //   else {
-//     console.log(chars = chars)
+//     chars
 //   }
 //   if (confirm("Would you like your password to contain uppercase letters?")) {
-//     console.log(chars = chars + uppercase)
+//     chars = chars + uppercase
 //   }
 //   else {
-//     console.log(chars = chars)
+//     chars
 //   }
 //   if (confirm("Would you like your password to contain numbers?")) {
-//     console.log(chars = chars + numeric)
+//     chars = chars + numeric
 //   }
 //   else {
-//     console.log(chars = chars)
+//     chars
 //   }
 //   if (confirm("Would you like your password to contain special characters?")) {
-//     console.log(chars = chars + specialChars)
+//     chars = chars + specialChars
 //   }
 //   else {
-//     console.log(chars = chars)
+//     chars
+//   } 
+//   // if user hasn't selected any type of character, it sends them back through the confirms until they select at least one type
+//   if (chars == '') {
+//     alert('NOTE: User must select AT LEAST 1 character type.')
+//     chooseCharacters()
 //   }
+//   // return chars
+//   console.log(chars)
+  
 // }
 
 // chooseCharacters()
